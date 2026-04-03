@@ -4,7 +4,7 @@ import { Youtube, Search, Loader2, MessageSquare, Users, ThumbsUp, ThumbsDown, A
 import { motion, AnimatePresence } from 'motion/react';
 
 // Initialize Gemini API
-const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
+const currentApiKey = import.meta.env.VITE_GEMINI_API_KEY;
 
 // Types for the generated data
 interface Comment {
