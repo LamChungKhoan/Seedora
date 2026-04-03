@@ -25,10 +25,12 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: "18"  # ổn định hơn 20
+          node-version: "20"  # ổn định hơn 20
 
-      - name: Install dependencies
-        run: npm ci --include=optional
+      - name: Clean install dependencies
+        run: |
+         rm -rf node_modules package-lock.json
+         npm install
 
       - name: Build
         run: npm run build
