@@ -28,7 +28,7 @@ jobs:
           node-version: "18"  # ổn định hơn 20
 
       - name: Install dependencies
-        run: npm ci
+        run: npm ci --omit=optional
 
       - name: Build
         run: npm run build
