@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+body {
+  background-color: #0a0a0a;
+  background-image: 
+    linear-gradient(rgba(255, 0, 60, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 0, 60, 0.05) 1px, transparent 1px);
+  background-size: 50px 50px;
+  background-position: center center;
+  color: #ffffff;
+  min-height: 100vh;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(circle at 50% 0%, rgba(255, 0, 60, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* 3D Glass Panel - More pronounced 3D */
+.glass-panel {
+  background: linear-gradient(135deg, rgba(30, 30, 30, 0.9) 0%, rgba(10, 10, 10, 0.95) 100%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  border-right: 1px solid rgba(0, 0, 0, 0.8);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.9);
+  box-shadow: 
+    10px 10px 30px rgba(0, 0, 0, 0.9), 
+    -2px -2px 15px rgba(255, 0, 60, 0.05),
+    inset 1px 1px 2px rgba(255, 255, 255, 0.1),
+    inset -1px -1px 2px rgba(0, 0, 0, 0.5);
+  transform-style: preserve-3d;
+}
+
+/* Hardware-like 3D Button Red */
+.btn-3d-red {
+  background: linear-gradient(180deg, #ff1a4d 0%, #cc0033 100%);
+  border-top: 1px solid #ff99b3;
+  border-left: 1px solid #ff4d79;
+  border-right: 1px solid #800020;
+  border-bottom: 3px solid #4d0013;
+  border-radius: 8px;
+  box-shadow: 
+    0 6px 0 #66001a, 
+    0 12px 20px rgba(255, 0, 60, 0.5),
+    inset 0 1px 2px rgba(255, 255, 255, 0.4);
+  transition: all 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+}
+.btn-3d-red:active:not(:disabled) {
+  transform: translateY(6px);
+  box-shadow: 
+    0 0px 0 #66001a, 
+    0 2px 5px rgba(255, 0, 60, 0.5),
+    inset 0 2px 4px rgba(0, 0, 0, 0.4);
+  border-bottom-width: 1px;
+}
+.btn-3d-red:disabled {
+  background: linear-gradient(180deg, #444 0%, #222 100%);
+  border-top: 1px solid #666;
+  border-left: 1px solid #555;
+  border-right: 1px solid #111;
+  border-bottom: 3px solid #000;
+  box-shadow: 0 6px 0 #0a0a0a;
+  color: #888;
+  text-shadow: none;
+}
+
+/* Tech Input - Deep 3D inset */
+.tech-input {
+  background: rgba(5, 5, 5, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-top: 2px solid rgba(0, 0, 0, 0.8);
+  border-left: 2px solid rgba(0, 0, 0, 0.8);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 
+    inset 2px 2px 10px rgba(0, 0, 0, 0.9), 
+    inset -1px -1px 5px rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  transition: all 0.3s ease;
+}
+.tech-input:focus {
+  border-color: #ff003c;
+  box-shadow: 
+    inset 2px 2px 15px rgba(0, 0, 0, 0.9), 
+    0 0 15px rgba(255, 0, 60, 0.4);
+  outline: none;
+}
+.tech-input::placeholder {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+/* Glowing Text */
+.glow-text {
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1);
+}
+.glow-text-red {
+  text-shadow: 0 0 10px rgba(255, 0, 60, 0.8), 0 0 20px rgba(255, 0, 60, 0.4), 0 0 40px rgba(255, 0, 60, 0.2);
+}
+
+/* Tech Borders (Corner accents) */
+.tech-corners {
+  position: relative;
+}
+.tech-corners::before, .tech-corners::after {
+  content: '';
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border: 2px solid #ff003c;
+  transition: all 0.3s ease;
+  z-index: 20;
+  pointer-events: none;
+}
+.tech-corners::before {
+  top: -2px;
+  left: -2px;
+  border-right: none;
+  border-bottom: none;
+}
+.tech-corners::after {
+  bottom: -2px;
+  right: -2px;
+  border-left: none;
+  border-top: none;
+}
+.tech-corners:hover::before, .tech-corners:hover::after {
+  width: 25px;
+  height: 25px;
+  border-color: #ff4d79;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+  border-left: 1px solid rgba(255,255,255,0.05);
+}
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border: 1px solid #444;
+  border-radius: 0;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ff003c;
+  border-color: #ff4d79;
+}
+
+/* 3D Card Hover Effect */
+.hover-3d {
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.hover-3d:hover {
+  transform: translateY(-5px) scale(1.02);
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Seeding Comment Youtube",
+  "description": "Analyzes a YouTube video URL to identify viewer segments and generates highly realistic, human-like comments for each segment in Vietnamese.",
+  "requestFramePermissions": []
+}
