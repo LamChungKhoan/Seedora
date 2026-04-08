@@ -111,7 +111,26 @@ async function startServer() {
       res.status(500).json({ error: error.message || "Failed to fetch video context" });
     }
   });
+      app.post("/api/generate", async (req, res) => {
+  try {
+    const { contents } = req.body;
 
+    const model = ai.getGenerativeModel({
+      model: "gemini-1.5-pro",
+    });
+
+    const result = await model.generateContent({
+      contents: contents,
+    });
+
+    res.json({
+      text: result.response.text(),
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "AI error" });
+  }
+});
   app.get("/api/audio-extract", async (req, res) => {
     try {
       const url = req.query.url as string;
